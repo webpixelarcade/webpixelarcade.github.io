@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merge Games | Play Free Online | Web Pixel Arcade</title>
+  <meta name="description" content="Play the best free Merge games online on Web Pixel Arcade. Page 1 of our curated collection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(22, 28, 45, 0.7);
+      --accent: #6c5ce7;
+      --accent-glow: rgba(108, 92, 231, 0.4);
+      --text-white: #ffffff;
+      --text-gray: #a0aec0;
+      --neon-green: #00f2fe;
+      --neon-pink: #ff007f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(circle at top, #1a1b36 0%, var(--bg-dark) 70%);
+      color: var(--text-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Top Navbar Styles */
+    .top-navbar {
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .top-nav-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--text-gray) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .top-nav-logo span {
+      -webkit-text-fill-color: initial;
+    }
+
+    .top-nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-nav-item {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav-item:hover, .top-nav-item.active {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Dropdown Styles */
+    .top-nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .top-nav-dropdown-btn {
+      background: none;
+      border: none;
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .top-nav-dropdown-btn:hover, .top-nav-dropdown.active .top-nav-dropdown-btn {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .top-nav-dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background: #111519;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      z-index: 1010;
+      padding: 8px 0;
+      margin-top: 5px;
+    }
+
+    .top-nav-dropdown-content a {
+      color: var(--text-gray);
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .top-nav-dropdown-content a:hover, .top-nav-dropdown-content a.active {
+      color: var(--text-white);
+      background: var(--accent);
+    }
+
+    .top-nav-dropdown:hover .top-nav-dropdown-content {
+      display: block;
+    }
+
+    /* Toggle button for Mobile */
+    .top-nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1020;
+    }
+
+    .top-nav-toggle .toggle-bar {
+      width: 100%;
+      height: 2px;
+      background-color: var(--text-white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      padding: 15px 20px 8px;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      display: none;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--text-gray) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Categories Navigation inside Footer */
+    .categories-nav {
+      padding: 15px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .categories-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .category-link {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .category-link:hover, .category-link.active {
+      color: var(--text-white);
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      box-shadow: 0 0 40px var(--accent-glow);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .thumbnail-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+      background: #000;
+    }
+
+    .thumbnail-wrapper img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover .thumbnail-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-white);
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-gray);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    .play-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--accent);
+      color: var(--text-white);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+    }
+
+    .play-btn:hover {
+      background: #7d6ef9;
+      box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    }
+
+    .play-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .page-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-gray);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .page-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .page-link.active {
+      background: var(--accent);
+      color: var(--text-white);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+
+    .page-link.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .page-arrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-gray);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .top-nav-toggle {
+        display: flex;
+      }
+
+      .top-nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 250px;
+        height: calc(100vh - 70px);
+        background: #0b0f19;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 30px 20px;
+        gap: 10px;
+        transition: right 0.3s ease;
+        z-index: 999;
+      }
+
+      .top-nav-menu.open {
+        right: 0;
+      }
+
+      .top-nav-item, .top-nav-dropdown-btn {
+        width: 100%;
+        text-align: left;
+        padding: 12px 15px;
+      }
+
+      .top-nav-dropdown-content {
+        position: static;
+        display: block;
+        background: rgba(255, 255, 255, 0.02);
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        margin-top: 0;
+        padding-left: 15px;
+      }
+
+      .top-nav-toggle.active .toggle-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .top-nav-toggle.active .toggle-bar:nth-child(2) {
+        opacity: 0;
+      }
+      .top-nav-toggle.active .toggle-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      h1 {
+        font-size: 1.2rem;
+      }
+      .subtitle {
+        font-size: 0.8rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="top-navbar">
+    <div class="top-nav-container">
+      <a href="index.html" class="top-nav-logo">
+        <span>🎮</span> Web Pixel Arcade
+      </a>
+
+      <button class="top-nav-toggle" id="topNavToggle" aria-label="Toggle menu">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+      <div class="top-nav-menu" id="topNavMenu">
+        <a href="index.html" class="top-nav-item ">Home</a>
+        <a href="category-casual.html" class="top-nav-item ">Casual</a>
+        <a href="category-puzzle.html" class="top-nav-item ">Puzzle</a>
+        <a href="category-simulation.html" class="top-nav-item ">Simulation</a>
+        <a href="category-adventure.html" class="top-nav-item ">Adventure</a>
+        <a href="category-agility.html" class="top-nav-item ">Agility</a>
+        <a href="category-shooter.html" class="top-nav-item ">Shooter</a>
+        <div class="top-nav-dropdown active">
+          <button class="top-nav-dropdown-btn">More ▾</button>
+          <div class="top-nav-dropdown-content">
+            <a href="category-racing-driving.html" class="">Racing & Driving</a>
+            <a href="category-dress-up.html" class="">Dress-up</a>
+            <a href="category-strategy.html" class="">Strategy</a>
+            <a href="category-match-3.html" class="">Match-3</a>
+            <a href="category-merge.html" class="active">Merge</a>
+            <a href="category-battle.html" class="">Battle</a>
+            <a href="category-cards.html" class="">Cards</a>
+            <a href="category-mahjong-connect.html" class="">Mahjong & Connect</a>
+            <a href="category-io.html" class="">.IO</a>
+            <a href="category-bubble-shooter.html" class="">Bubble Shooter</a>
+            <a href="category-sports.html" class="">Sports</a>
+            <a href="category-educational.html" class="">Educational</a>
+            <a href="category-football.html" class="">Football</a>
+            <a href="category-cooking.html" class="">Cooking</a>
+            <a href="category-art.html" class="">Art</a>
+            <a href="category-quiz.html" class="">Quiz</a>
+            <a href="category-boardgames.html" class="">Boardgames</a>
+            <a href="category-care.html" class="">Care</a>
+            <a href="category-basketball.html" class="">Basketball</a>
+            <a href="category-jigsaw.html" class="">Jigsaw</a>
+          </div>
+        </div>
+        <div class="top-nav-dropdown ">
+          <button class="top-nav-dropdown-btn">About ▾</button>
+          <div class="top-nav-dropdown-content">
+            <a href="contact.html" class="">Contact Us</a>
+            <a href="privacy.html" class="">Privacy Policy</a>
+            <a href="terms.html" class="">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Merge Games</h1>
+    <p class="subtitle">Play the best free Merge games online on Web Pixel Arcade. Page 1 of our curated collection.</p>
+  </header>
+
+    <!-- Dedicated Search Bar Row -->
+  <div class="search-bar-row">
+    <div class="search-bar-row-container">
+      <input type="text" id="searchInput" placeholder="Search for your favorite games..." autocomplete="off">
+      <div id="searchSuggestions" class="search-suggestions"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid">
+            <!-- Card: Safe Merge -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/313.webp" alt="Safe Merge Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Safe Merge</h2>
+          <p class="card-description">A simple idle merge game, you need to merge safes with same design to make a safe more powerfull, you need to unlock all design to win the game, the design are in the right, if the game was hard you can do prestige to win more money per cicle.</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="safe-merge.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Animal Block Pop Puzzle -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/389.webp" alt="Animal Block Pop Puzzle Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Animal Block Pop Puzzle</h2>
+          <p class="card-description">Animal Block Pop Puzzle is a fun puzzle game with cute animal-themed visuals. ??✨ Match 3+ animal-shaped blocks ?? on a grid to clear them and score points. As you progress, the game gets faster and adds new tile colors for a growing challenge. With easy drag-and-drop controls and vibrant graphics, it offers a relaxing yet exciting experience for all ages.</p>
+          <div class="tag-container">
+            <span class="tag">Match-3</span>
+<span class="tag">Merge</span>
+          </div>
+          <a href="animal-block-pop-puzzle.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Small Wardrobe -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/401.webp" alt="Small Wardrobe Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Small Wardrobe</h2>
+          <p class="card-description">Small Wardrobe is a casual game designed specifically for cotton dolls. Collect and create beautiful and cute dresses for your cotton dolls, and experience heartwarming and fun stories. The game offers a variety of adorable doll clothes, shoes, and accessories. Let's happily organize and tidy up the doll's wardrobe together!</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="small-wardrobe.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Melon Drop: Fruit Merge Master -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/406.webp" alt="Melon Drop: Fruit Merge Master Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Melon Drop: Fruit Merge Master</h2>
+          <p class="card-description">Dive deep into the vibrant and enthralling world of fruit-matching with our exciting game, Fruit Merge: Juicy Drop Game! ??? When the same fruits collide, they merge into a larger fruit. Your mission is to smartly pair the same types of fruits to make the biggest possible fruits without letting them overflow from the container. However, as the fruits grow in size, space becomes a premium - managing it effectively is your key challenge. Can you strategize and solve this fruity puzzle?</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="melon-drop-fruit-merge-master.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Kawaii Claw Merge -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/429.webp" alt="Kawaii Claw Merge Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Kawaii Claw Merge</h2>
+          <p class="card-description">The cutest merging adventure has arrived, featuring some of the most colorful Kawaii plushies around! 
+
+Show off your merging skills by combining smaller Kawaii plushies to get a bigger plushy! Can you discover the biggest plushy of them all?
+
+Ready for a serious dose of cuteness?
+Play Kawaii Merge now - and let the merging magic begin!</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="kawaii-claw-merge.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Plant Merge: Zombie War -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/430.webp" alt="Plant Merge: Zombie War Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Plant Merge: Zombie War</h2>
+          <p class="card-description">In the chaotic world of Merge Plant Zombie War, arm your garden with strategic merges to fend off relentless zombie hordes! Master upgrades, deploy special abilities, and outsmart waves of undead foes in this addictive merge-tower defense adventure. Will your botanical army prevail in the ultimate war for survival? Dive in and merge your way to victory!</p>
+          <div class="tag-container">
+            <span class="tag">Adventure</span>
+<span class="tag">Merge</span>
+          </div>
+          <a href="plant-merge-zombie-war.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Dark Myth: Monkey Merge -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/437.webp" alt="Dark Myth: Monkey Merge Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Dark Myth: Monkey Merge</h2>
+          <p class="card-description">Merge warriors, build your army, and fight through hordes of monsters as the Monkey King! Your master and companions have been captured — combine strategy and action to rescue them all. From Common to Legendary, every merge makes you stronger.</p>
+          <div class="tag-container">
+            <span class="tag">Adventure</span>
+<span class="tag">Merge</span>
+          </div>
+          <a href="dark-myth-monkey-merge.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Number Merge 10 -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/441.webp" alt="Number Merge 10 Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Number Merge 10</h2>
+          <p class="card-description">Number Merge 10 is a very innovative math puzzle game.Select a rectangular area, and if the sum of the numbers within that area equals 10, all the numbers in that area will be eliminated!</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="number-merge-10.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: PopCats: Merge the cats! -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/542.webp" alt="PopCats: Merge the cats! Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">PopCats: Merge the cats!</h2>
+          <p class="card-description">An incredibly cute game full of purring and cats. You have to connect identical cats to get bigger and bigger fuzzies. Each of them has its own story! Get to know them and connect the two biggest ones to win! Earn points and become the best cat on the leaderboard!</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="popcats-merge-the-cats.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Merge Numbers -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/633.webp" alt="Merge Numbers Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Merge Numbers</h2>
+          <p class="card-description">Merge Numbers is a relaxing HTML5 game to play, the objective of the game is to combine two same tile or number into one, then tile number will be upgraded and score will be increased. The game will ended if there is no room or movement available in the board.</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="merge-numbers.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Catch The Goose -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/663.webp" alt="Catch The Goose Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Catch The Goose</h2>
+          <p class="card-description">Catch The Goose is a puzzle elimination mini-game. Players can tap identical items to automatically send them to the bottom slot - when three matching items gather, they get eliminated. When players successfully clear all items arranged in the grid, they get to "catch" a mischievous goose. Its addictive simplicity, stress-relieving design, and playful art style have made it a cultural phenomenon.</p>
+          <div class="tag-container">
+            <span class="tag">Match-3</span>
+<span class="tag">Merge</span>
+          </div>
+          <a href="catch-the-goose.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Chain Cube 2048 3D Merge Game -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/681.webp" alt="Chain Cube 2048 3D Merge Game Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Chain Cube 2048 3D Merge Game</h2>
+          <p class="card-description">Ready to challenge yourself? Chain Cubes 2048 is an addictive merging puzzle online game for those who like challenging brain teasers and logic puzzle merging games. Believe it or not, it's much
+harder to put together 2048 cubes than it is to throw away the numbers. If you fail to merge the cube number blocks, they will bounce off each other!  Keep playing and eventually complete 2248 number puzzles!</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="chain-cube-2048-3d-merge-game.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Cake Merge -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/705.webp" alt="Cake Merge Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Cake Merge</h2>
+          <p class="card-description">Cake Merge is a bright and relaxing puzzle game where you build whole cakes from colorful slices. Clear the tray, trigger satisfying chain reactions, and unlock new desserts as you play. With smooth animations, cute visuals, and easy-to-learn gameplay, Cake Merge is perfect for fans of casual merge, sorting, and matching games. Earn points, level up, and enjoy the sweetest merges!</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="cake-merge.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Cubatoria Merge 2048 -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/712.webp" alt="Cubatoria Merge 2048 Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Cubatoria Merge 2048</h2>
+          <p class="card-description">Welcome to the exciting world of Cubatoria Merge 2048! This game combines elements of the classic 2048 game with a three-dimensional visual design, which makes it unique and exciting.
+
+The game is designed for fans of puzzles, logic games and those who appreciate a creative approach to classic concepts. Cubatoria Merge 2048 promises an exciting immersion in virtual space with the opportunity to enjoy a new visual experience.</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="cubatoria-merge-2048.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Hexa Stack Christmas -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/762.webp" alt="Hexa Stack Christmas Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Hexa Stack Christmas</h2>
+          <p class="card-description">Get into the holiday spirit with Hexa Stack Christmas: a festive twist on the classic hexagon-stacking puzzle game. Place the Christmas-themed hexagon tiles stacks onto the board and sort the same color tiles to collect them. The game combines a light puzzle that requires attention and logic — perfect for relaxing while stimulating your brain. 2 game modes, infinite levels, a user-friendly interface, and save support let you play anytime without losing progress.</p>
+          <div class="tag-container">
+            <span class="tag">Match-3</span>
+<span class="tag">Merge</span>
+          </div>
+          <a href="hexa-stack-christmas.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Sophie's Farm -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/772.webp" alt="Sophie's Farm Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Sophie's Farm</h2>
+          <p class="card-description">Plot: After a divorce, Sophie is left alone with a child. She starts from scratch, hoping to turn her life around.
+Gameplay: Fulfill customer orders by matching items on the playing field. Spend your earnings to restore the farm and other locations. Each task reveals more of the story and brings you closer to the finale.</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="sophies-farm.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Animal Merge: Bubble Shooter -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/780.webp" alt="Animal Merge: Bubble Shooter Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Animal Merge: Bubble Shooter</h2>
+          <p class="card-description">Welcome to Animal Merge, where you evolve adorable creatures by merging bubbles! Launch, connect, and combine animal bubbles to create advanced species. Watch as identical animals merge into exciting new forms! Keep merging to reach the ultimate evolution and complete your goal. Use special tools to boost progress. With each level, the challenge grows—can you master merging and collect all the final animals? Jump in and start merging now!</p>
+          <div class="tag-container">
+            <span class="tag">Bubble Shooter</span>
+<span class="tag">Merge</span>
+          </div>
+          <a href="animal-merge-bubble-shooter.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Merge Town! -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/826.webp" alt="Merge Town! Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Merge Town!</h2>
+          <p class="card-description">Ever wanted to be Mayor? Ever wanted to run a town, develop the land, and see a metropolis grow? Well, look no further than Merge Town!, the newest title from Gram Games. The concept of the game is simple - you have a plot of land, and it’s your job to turn it into a town. Every so often, you’ll be gifted with a house. Each house can be merged with other houses of the same variety to form a bigger home.</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="merge-town.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Weaponsmith Evolution - Weapon Merge -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/836.webp" alt="Weaponsmith Evolution - Weapon Merge Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Weaponsmith Evolution - Weapon Merge</h2>
+          <p class="card-description">- Start with basic weapons and drag identical ones to merge them into more powerful versions.
+- Each new weapon brings more gold.
+- Spend gold on upgrades: unlock new types of weapons or speed up the merging process.
+- Fight monsters and progress through levels.
+- From time to time, you’ll encounter powerful bosses. Defeat them to prove your mastery!</p>
+          <div class="tag-container">
+            <span class="tag">Merge</span>
+          </div>
+          <a href="weaponsmith-evolution-weapon-merge.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Idle Merge Car And Race -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/882.webp" alt="Idle Merge Car And Race Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Idle Merge Car And Race</h2>
+          <p class="card-description">An addictive idle car merging game. Build your own car racing company and grow your business.
+Move your cars to the racing track and earn money every time they cross the finish line. Buy new cars (or collect them from the gift boxes), and merge the same level cars to upgrade into a new type. The better the cars, the more money you will earn. Use your earnings to buy upgrade packages in the Shop to help you make money faster! Become the richest in the world in this idle merge car game.</p>
+          <div class="tag-container">
+            <span class="tag">Strategy</span>
+<span class="tag">Merge</span>
+          </div>
+          <a href="idle-merge-car-and-race.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+    </div>
+    <div class="pagination"><span class="page-link disabled">&laquo; Prev</span><span class="page-link active">1</span><a href="category-merge-2.html" class="page-link">2</a><a href="category-merge-2.html" class="page-link page-arrow">Next &raquo;</a></div>
+  </div>
+
+  <footer>
+      <nav class="categories-nav">
+    <div class="categories-container">
+      <a href="index.html" class="category-link ">All Games</a>
+      <a href="category-io.html" class="category-link ">.IO</a>
+      <a href="category-adventure.html" class="category-link ">Adventure</a>
+      <a href="category-agility.html" class="category-link ">Agility</a>
+      <a href="category-art.html" class="category-link ">Art</a>
+      <a href="category-basketball.html" class="category-link ">Basketball</a>
+      <a href="category-battle.html" class="category-link ">Battle</a>
+      <a href="category-boardgames.html" class="category-link ">Boardgames</a>
+      <a href="category-bubble-shooter.html" class="category-link ">Bubble Shooter</a>
+      <a href="category-cards.html" class="category-link ">Cards</a>
+      <a href="category-care.html" class="category-link ">Care</a>
+      <a href="category-casual.html" class="category-link ">Casual</a>
+      <a href="category-cooking.html" class="category-link ">Cooking</a>
+      <a href="category-dress-up.html" class="category-link ">Dress-up</a>
+      <a href="category-educational.html" class="category-link ">Educational</a>
+      <a href="category-football.html" class="category-link ">Football</a>
+      <a href="category-jigsaw.html" class="category-link ">Jigsaw</a>
+      <a href="category-mahjong-connect.html" class="category-link ">Mahjong & Connect</a>
+      <a href="category-match-3.html" class="category-link ">Match-3</a>
+      <a href="category-merge.html" class="category-link active">Merge</a>
+      <a href="category-puzzle.html" class="category-link ">Puzzle</a>
+      <a href="category-quiz.html" class="category-link ">Quiz</a>
+      <a href="category-racing-driving.html" class="category-link ">Racing & Driving</a>
+      <a href="category-shooter.html" class="category-link ">Shooter</a>
+      <a href="category-simulation.html" class="category-link ">Simulation</a>
+      <a href="category-sports.html" class="category-link ">Sports</a>
+      <a href="category-strategy.html" class="category-link ">Strategy</a>
+    </div>
+  </nav>
+    <p style="margin-top: 15px;">&copy; 2026 Merge Games. Deployed on webpixelarcade.github.io.</p>
+    <div class="footer-links" style="margin-top: 15px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; align-items: center;">
+  <a href="contact.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Contact Us</a>
+  <span style="color: rgba(255, 255, 255, 0.15);">|</span>
+  <a href="privacy.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a>
+  <span style="color: rgba(255, 255, 255, 0.15);">|</span>
+  <a href="terms.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Terms of Service</a>
+</div>
+
+  </footer>
+
+  <script src="ads-manager.js" defer></script>
+  <script src="search.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const topNavToggle = document.getElementById('topNavToggle');
+      const topNavMenu = document.getElementById('topNavMenu');
+      if (topNavToggle && topNavMenu) {
+        topNavToggle.addEventListener('click', () => {
+          topNavMenu.classList.toggle('open');
+          topNavToggle.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

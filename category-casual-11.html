@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casual Games - Page 11 | Play Free Online | Web Pixel Arcade</title>
+  <meta name="description" content="Play the best free Casual games online on Web Pixel Arcade. Page 11 of our curated collection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(22, 28, 45, 0.7);
+      --accent: #6c5ce7;
+      --accent-glow: rgba(108, 92, 231, 0.4);
+      --text-white: #ffffff;
+      --text-gray: #a0aec0;
+      --neon-green: #00f2fe;
+      --neon-pink: #ff007f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(circle at top, #1a1b36 0%, var(--bg-dark) 70%);
+      color: var(--text-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Top Navbar Styles */
+    .top-navbar {
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .top-nav-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--text-gray) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .top-nav-logo span {
+      -webkit-text-fill-color: initial;
+    }
+
+    .top-nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-nav-item {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav-item:hover, .top-nav-item.active {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Dropdown Styles */
+    .top-nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .top-nav-dropdown-btn {
+      background: none;
+      border: none;
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .top-nav-dropdown-btn:hover, .top-nav-dropdown.active .top-nav-dropdown-btn {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .top-nav-dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background: #111519;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      z-index: 1010;
+      padding: 8px 0;
+      margin-top: 5px;
+    }
+
+    .top-nav-dropdown-content a {
+      color: var(--text-gray);
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .top-nav-dropdown-content a:hover, .top-nav-dropdown-content a.active {
+      color: var(--text-white);
+      background: var(--accent);
+    }
+
+    .top-nav-dropdown:hover .top-nav-dropdown-content {
+      display: block;
+    }
+
+    /* Toggle button for Mobile */
+    .top-nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1020;
+    }
+
+    .top-nav-toggle .toggle-bar {
+      width: 100%;
+      height: 2px;
+      background-color: var(--text-white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      padding: 15px 20px 8px;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      display: none;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--text-gray) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Categories Navigation inside Footer */
+    .categories-nav {
+      padding: 15px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .categories-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .category-link {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .category-link:hover, .category-link.active {
+      color: var(--text-white);
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      box-shadow: 0 0 40px var(--accent-glow);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .thumbnail-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+      background: #000;
+    }
+
+    .thumbnail-wrapper img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover .thumbnail-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-white);
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-gray);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    .play-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--accent);
+      color: var(--text-white);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+    }
+
+    .play-btn:hover {
+      background: #7d6ef9;
+      box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    }
+
+    .play-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .page-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-gray);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .page-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .page-link.active {
+      background: var(--accent);
+      color: var(--text-white);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+
+    .page-link.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .page-arrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-gray);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .top-nav-toggle {
+        display: flex;
+      }
+
+      .top-nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 250px;
+        height: calc(100vh - 70px);
+        background: #0b0f19;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 30px 20px;
+        gap: 10px;
+        transition: right 0.3s ease;
+        z-index: 999;
+      }
+
+      .top-nav-menu.open {
+        right: 0;
+      }
+
+      .top-nav-item, .top-nav-dropdown-btn {
+        width: 100%;
+        text-align: left;
+        padding: 12px 15px;
+      }
+
+      .top-nav-dropdown-content {
+        position: static;
+        display: block;
+        background: rgba(255, 255, 255, 0.02);
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        margin-top: 0;
+        padding-left: 15px;
+      }
+
+      .top-nav-toggle.active .toggle-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .top-nav-toggle.active .toggle-bar:nth-child(2) {
+        opacity: 0;
+      }
+      .top-nav-toggle.active .toggle-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      h1 {
+        font-size: 1.2rem;
+      }
+      .subtitle {
+        font-size: 0.8rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="top-navbar">
+    <div class="top-nav-container">
+      <a href="index.html" class="top-nav-logo">
+        <span>🎮</span> Web Pixel Arcade
+      </a>
+
+      <button class="top-nav-toggle" id="topNavToggle" aria-label="Toggle menu">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+      <div class="top-nav-menu" id="topNavMenu">
+        <a href="index.html" class="top-nav-item ">Home</a>
+        <a href="category-casual.html" class="top-nav-item active">Casual</a>
+        <a href="category-puzzle.html" class="top-nav-item ">Puzzle</a>
+        <a href="category-simulation.html" class="top-nav-item ">Simulation</a>
+        <a href="category-adventure.html" class="top-nav-item ">Adventure</a>
+        <a href="category-agility.html" class="top-nav-item ">Agility</a>
+        <a href="category-shooter.html" class="top-nav-item ">Shooter</a>
+        <div class="top-nav-dropdown ">
+          <button class="top-nav-dropdown-btn">More ▾</button>
+          <div class="top-nav-dropdown-content">
+            <a href="category-racing-driving.html" class="">Racing & Driving</a>
+            <a href="category-dress-up.html" class="">Dress-up</a>
+            <a href="category-strategy.html" class="">Strategy</a>
+            <a href="category-match-3.html" class="">Match-3</a>
+            <a href="category-merge.html" class="">Merge</a>
+            <a href="category-battle.html" class="">Battle</a>
+            <a href="category-cards.html" class="">Cards</a>
+            <a href="category-mahjong-connect.html" class="">Mahjong & Connect</a>
+            <a href="category-io.html" class="">.IO</a>
+            <a href="category-bubble-shooter.html" class="">Bubble Shooter</a>
+            <a href="category-sports.html" class="">Sports</a>
+            <a href="category-educational.html" class="">Educational</a>
+            <a href="category-football.html" class="">Football</a>
+            <a href="category-cooking.html" class="">Cooking</a>
+            <a href="category-art.html" class="">Art</a>
+            <a href="category-quiz.html" class="">Quiz</a>
+            <a href="category-boardgames.html" class="">Boardgames</a>
+            <a href="category-care.html" class="">Care</a>
+            <a href="category-basketball.html" class="">Basketball</a>
+            <a href="category-jigsaw.html" class="">Jigsaw</a>
+          </div>
+        </div>
+        <div class="top-nav-dropdown ">
+          <button class="top-nav-dropdown-btn">About ▾</button>
+          <div class="top-nav-dropdown-content">
+            <a href="contact.html" class="">Contact Us</a>
+            <a href="privacy.html" class="">Privacy Policy</a>
+            <a href="terms.html" class="">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Casual Games</h1>
+    <p class="subtitle">Play the best free Casual games online on Web Pixel Arcade. Page 11 of our curated collection.</p>
+  </header>
+
+    <!-- Dedicated Search Bar Row -->
+  <div class="search-bar-row">
+    <div class="search-bar-row-container">
+      <input type="text" id="searchInput" placeholder="Search for your favorite games..." autocomplete="off">
+      <div id="searchSuggestions" class="search-suggestions"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid">
+            <!-- Card: Kaboom Miner -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/834.webp" alt="Kaboom Miner Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Kaboom Miner</h2>
+          <p class="card-description">A fast-paced logical arcade inspired by classic Boulder Dash, but taken to the next level with massive chain explosions.
+Your goal is simple—but dangerous: destroy all 50 explosive crates. Use falling stones, carefully placed bombs, and clever terrain manipulation to trigger devastating chain reactions. Every move matters. Push stones, move crates, build bridges from bricks, and even trap the Ghost before finishing it off.</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+<span class="tag">Strategy</span>
+          </div>
+          <a href="kaboom-miner.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Falling Art Ragdoll Simulator -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/842.webp" alt="Falling Art Ragdoll Simulator Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Falling Art Ragdoll Simulator</h2>
+          <p class="card-description">The harder they fall, the more points they get!
+
+Jump in and enjoy the beauty of falling art! Because let’s be honest - there is nothing more satisfying than watching someone hurt themselves in the most dumb and ridiculous way. Especially when that someone is a 3d model with ragdoll physics and you don’t need to feel sorry for it at all!
+ 
+Just enjoy our crazy game, have fun, and stay safe!</p>
+          <div class="tag-container">
+            <span class="tag">Agility</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="falling-art-ragdoll-simulator.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Men Vs Gorillas -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/843.webp" alt="Men Vs Gorillas Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Men Vs Gorillas</h2>
+          <p class="card-description">Men vs Gorilla – The Ultimate Evolution Battle!
+
+Step into the wild showdown of Man vs Gorilla!
+Upgrade your human’s strength, damage, and health to survive the rising fury of the jungle’s strongest beast. ?
+
+Each level brings a tougher gorilla, smarter attacks, and intense battles but also bigger rewards!
+Use your earnings to level up your power, evolve your fighter, and dominate every fight!</p>
+          <div class="tag-container">
+            <span class="tag">Battle</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="men-vs-gorillas.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Crazy Plane Landing -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/845.webp" alt="Crazy Plane Landing Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Crazy Plane Landing</h2>
+          <p class="card-description">Flying is easy - but can you stick the landing?
+
+Get into one of the amazing flying machines and launch as high as you can. This part is easy… well, fairly easy. Not that anyone can do it. But you can. Surely you do!
+
+What’s really interesting is what happens next. Will you crash? Or will you somehow make it a perfect landing?</p>
+          <div class="tag-container">
+            <span class="tag">Agility</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="crazy-plane-landing.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: U Shape Puzzle -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/846.webp" alt="U Shape Puzzle Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">U Shape Puzzle</h2>
+          <p class="card-description">U Shape Puzzle is a free online browser game you can play instantly with no download or install. Slide U-shaped blocks by tapping to clear paths in this mobile-friendly brain game and logic puzzle that challenges planning and patience. Fast loading and unblocked, it works on desktop or phone so you can play at school or home. Simple one-touch controls make it perfect for kids, casual players and puzzle fans. Quick daily challenges and escalating levels keep the brain engaged. Try now anytime.</p>
+          <div class="tag-container">
+            <span class="tag">Puzzle</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="u-shape-puzzle.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: FNF 2 Player -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/853.webp" alt="FNF 2 Player Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">FNF 2 Player</h2>
+          <p class="card-description">FNF 2 Player allows two players to play at the same time. Players can compete with each other by choosing the characters they want. The difficulty level can be determined by the music, thus appealing to all types of players.
+
+Game Modes: 
+
+- Story Mode: You fight with new characters weekly.
+- Freeplay Mode: You can play by choosing the song you want.
+- 2 Player Mode: It's time to duel with your friend.</p>
+          <div class="tag-container">
+            <span class="tag">Agility</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="fnf-2-player.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Nuwpy's Adventure -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/854.webp" alt="Nuwpy's Adventure Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Nuwpy's Adventure</h2>
+          <p class="card-description">Nuwpy’s Adventure is a classic pixel-art platformer inspired by retro arcade games!
+Help Nuwpy explore colorful worlds, collect coins, jump over enemies, and avoid traps.
+Each level offers new challenges, hidden secrets, and a fast-paced journey full of charm and nostalgia.
+Dive into the pixel world and enjoy simple yet addictive gameplay!</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+          </div>
+          <a href="nuwpys-adventure.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Super Tank Wrestle -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/855.webp" alt="Super Tank Wrestle Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Super Tank Wrestle</h2>
+          <p class="card-description">Welcome to the world of tank battles, where you can control tanks to fight with other enemies on different maps. There are also a wealth of tanks for you to choose from!</p>
+          <div class="tag-container">
+            <span class="tag">Battle</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="super-tank-wrestle.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Galaxy Carnage -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/856.webp" alt="Galaxy Carnage Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Galaxy Carnage</h2>
+          <p class="card-description">Battle in space with countless enemies and their bosses coming in waves. Lots of weapons, lots of lasers, lots of explosions and effects. Upgrade the starship to the most powerful machine for exterminating alien invaders.</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+          </div>
+          <a href="galaxy-carnage.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Bento Match -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/859.webp" alt="Bento Match Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Bento Match</h2>
+          <p class="card-description">Slide the blocks to line them up straight and clear them!
+If there’s space, you can move multiple blocks at once.
+You can also move blocks without clearing them, but you’ll lose 1 life.
+Earn coins based on your score and use them to collect new blocks!
+Collected blocks will appear randomly in the game—rare blocks give higher scores!</p>
+          <div class="tag-container">
+            <span class="tag">Puzzle</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="bento-match.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Griddlers Deluxe -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/863.webp" alt="Griddlers Deluxe Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Griddlers Deluxe</h2>
+          <p class="card-description">Welcome to Griddlers Deluxe! Immerse yourself in a world of captivating puzzles. Uncover hidden images by deciphering numerical clues on the grid. With almost 200 challenges, Griddlers Deluxe offers addictive brain-teasing fun. Ready to decode the mysteries? Play now!</p>
+          <div class="tag-container">
+            <span class="tag">Puzzle</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="griddlers-deluxe.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Farm Defense -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/865.webp" alt="Farm Defense Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Farm Defense</h2>
+          <p class="card-description">Farm Defense is a fast, arcade-style shooter where you guard your ranch from waves of quirky mutants. Move between lanes, aim, and blast anything that crawls out of the burrows before it reaches your crops. Earn coins, unlock new weapons and gadgets, and power up your electric fence. Bright visuals, snappy controls, and escalating waves make every run tense and satisfying.</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+          </div>
+          <a href="farm-defense.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Ludo World -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/866.webp" alt="Ludo World Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Ludo World</h2>
+          <p class="card-description">Experience endless fun with various vibrant environments, where every roll of the dice brings a new challenge. Choose between classic or quick mode, progress along the trophy road, and prove you're the master of the board with every move you make.</p>
+          <div class="tag-container">
+            <span class="tag">Boardgames</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="ludo-world.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Block Combo Blast -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/867.webp" alt="Block Combo Blast Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Block Combo Blast</h2>
+          <p class="card-description">Enjoy a classic block puzzle game with exciting jewel blast gameplay and stunning visuals! Solve 1800+ challenging levels, earn combos, and climb the global leaderboard. Train your brain, relax with soothing sounds, and compete with friends for the top spot!</p>
+          <div class="tag-container">
+            <span class="tag">Puzzle</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="block-combo-blast.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Fishing Bear -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/869.webp" alt="Fishing Bear Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Fishing Bear</h2>
+          <p class="card-description">Tap to reel in your fishing line and catch as many fish as you can!
+But stay alert—mischievous creatures in the sea will try to get in your way.
+And when you pick up a mysterious Treasure Shell… something exciting might happen!
+Enjoy a simple and addictive fishing experience!</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+          </div>
+          <a href="fishing-bear.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Space Shift -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/885.webp" alt="Space Shift Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Space Shift</h2>
+          <p class="card-description">It's a game where you travel in space for as long as possible without hitting any obstacles- meteorites or missiles. Your ship moves automatically and you can slow it down to ensure it doesn't hit anything. There are different galaxies to travel through different in appearance and the type of obstacles to appear. If you travel far enough, you may encounter even an alien ship!</p>
+          <div class="tag-container">
+            <span class="tag">Agility</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="space-shift.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Power Puzzle -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/892.webp" alt="Power Puzzle Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Power Puzzle</h2>
+          <p class="card-description">In Power Puzzle, you take control of a growing electrical network. Connect generators, route power through the grid, and bring every building to life — but every move matters.
+
+? Gameplay
+Connect power lines from generators to buildings
+Manage limited connections and avoid inefficient routes
+Every level is a handcrafted puzzle with increasing complexity
+Multiple solutions are possible — can you find the most optimal one?</p>
+          <div class="tag-container">
+            <span class="tag">Puzzle</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="power-puzzle.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Cannon Blast - The Last Stand -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/894.webp" alt="Cannon Blast - The Last Stand Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Cannon Blast - The Last Stand</h2>
+          <p class="card-description">You are in control of a cannon and the enemy army is marching towards you. You have to improve your skills, collect coins to buy upgrades, and never retreat because this is The Last Stand.</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+          </div>
+          <a href="cannon-blast-the-last-stand.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Drive To Survive -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/896.webp" alt="Drive To Survive Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Drive To Survive</h2>
+          <p class="card-description">Dive into the world of the zombie apocalypse, where your car is the only weapon!
+Shoot down hordes of zombies, earn money and unlock new powerful cars.
+
+Earn money - use your skills to become a master of survival!
+Buy cars - from classics to supercars!
+Explore new locations - each level is full of challenges!
+
+Show the zombies who's boss!</p>
+          <div class="tag-container">
+            <span class="tag">Racing & Driving</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="drive-to-survive.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Ocean Pop -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/900.webp" alt="Ocean Pop Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Ocean Pop</h2>
+          <p class="card-description">Ocean Pop is a lively underwater puzzle game where real 2D bubbles float, bounce, and cluster with natural physics. Pop matching bubbles, trigger chain reactions, and enjoy dynamic, ever-shifting puzzles. Its colorful ocean setting, smooth mechanics, and playful movement create a relaxing yet engaging experience that’s easy to learn and satisfying to master.</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+          </div>
+          <a href="ocean-pop.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+    </div>
+    <div class="pagination"><a href="category-casual-10.html" class="page-link page-arrow">&laquo; Prev</a><a href="category-casual.html" class="page-link">1</a><span class="page-link disabled">...</span><a href="category-casual-9.html" class="page-link">9</a><a href="category-casual-10.html" class="page-link">10</a><span class="page-link active">11</span><a href="category-casual-12.html" class="page-link">12</a><a href="category-casual-13.html" class="page-link">13</a><span class="page-link disabled">...</span><a href="category-casual-17.html" class="page-link">17</a><a href="category-casual-12.html" class="page-link page-arrow">Next &raquo;</a></div>
+  </div>
+
+  <footer>
+      <nav class="categories-nav">
+    <div class="categories-container">
+      <a href="index.html" class="category-link ">All Games</a>
+      <a href="category-io.html" class="category-link ">.IO</a>
+      <a href="category-adventure.html" class="category-link ">Adventure</a>
+      <a href="category-agility.html" class="category-link ">Agility</a>
+      <a href="category-art.html" class="category-link ">Art</a>
+      <a href="category-basketball.html" class="category-link ">Basketball</a>
+      <a href="category-battle.html" class="category-link ">Battle</a>
+      <a href="category-boardgames.html" class="category-link ">Boardgames</a>
+      <a href="category-bubble-shooter.html" class="category-link ">Bubble Shooter</a>
+      <a href="category-cards.html" class="category-link ">Cards</a>
+      <a href="category-care.html" class="category-link ">Care</a>
+      <a href="category-casual.html" class="category-link active">Casual</a>
+      <a href="category-cooking.html" class="category-link ">Cooking</a>
+      <a href="category-dress-up.html" class="category-link ">Dress-up</a>
+      <a href="category-educational.html" class="category-link ">Educational</a>
+      <a href="category-football.html" class="category-link ">Football</a>
+      <a href="category-jigsaw.html" class="category-link ">Jigsaw</a>
+      <a href="category-mahjong-connect.html" class="category-link ">Mahjong & Connect</a>
+      <a href="category-match-3.html" class="category-link ">Match-3</a>
+      <a href="category-merge.html" class="category-link ">Merge</a>
+      <a href="category-puzzle.html" class="category-link ">Puzzle</a>
+      <a href="category-quiz.html" class="category-link ">Quiz</a>
+      <a href="category-racing-driving.html" class="category-link ">Racing & Driving</a>
+      <a href="category-shooter.html" class="category-link ">Shooter</a>
+      <a href="category-simulation.html" class="category-link ">Simulation</a>
+      <a href="category-sports.html" class="category-link ">Sports</a>
+      <a href="category-strategy.html" class="category-link ">Strategy</a>
+    </div>
+  </nav>
+    <p style="margin-top: 15px;">&copy; 2026 Casual Games. Deployed on webpixelarcade.github.io.</p>
+    <div class="footer-links" style="margin-top: 15px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; align-items: center;">
+  <a href="contact.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Contact Us</a>
+  <span style="color: rgba(255, 255, 255, 0.15);">|</span>
+  <a href="privacy.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a>
+  <span style="color: rgba(255, 255, 255, 0.15);">|</span>
+  <a href="terms.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Terms of Service</a>
+</div>
+
+  </footer>
+
+  <script src="ads-manager.js" defer></script>
+  <script src="search.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const topNavToggle = document.getElementById('topNavToggle');
+      const topNavMenu = document.getElementById('topNavMenu');
+      if (topNavToggle && topNavMenu) {
+        topNavToggle.addEventListener('click', () => {
+          topNavMenu.classList.toggle('open');
+          topNavToggle.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
